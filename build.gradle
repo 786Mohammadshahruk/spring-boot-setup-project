@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.4'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'org.sonarqube' version '4.3.0.3225' // Add the SonarQube plugin
 }
 
 group = 'com.pipeline-test'
@@ -25,4 +26,12 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "test-pipeline-service"
+		property "sonar.host.url", "http://49.37.72.148:9000"
+
+	}
 }

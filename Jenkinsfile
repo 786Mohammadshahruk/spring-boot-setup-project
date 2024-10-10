@@ -1,17 +1,15 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Git Checkout'){
-            steps{
-                script{
-                    git branch: 'main', url: 'https://github.com/786Mohammadshahruk/spring-boot-setup-project.git'
-                }
-            }
-        }
-        stage('Run Build') {
-            steps {
-                script {
-                     sh './gradlew build'
+    stages {
+        script {
+            def stages = load 'stages.groovy'
+            for (stage in stages) {
+                stage(stage.name) {
+                    steps {
+                        script {
+                            stage.script()
+                        }
+                    }
                 }
             }
         }
