@@ -32,6 +32,6 @@ sonarqube {
 	properties {
 		property "sonar.projectKey", "test-pipeline-service"
 		property "sonar.host.url", "http://49.37.72.148:9000"
-
+		property "sonar.login", "sqa_7be7ffafc7255e9e2105715c33197aeff43e85d2"
 	}
 }
