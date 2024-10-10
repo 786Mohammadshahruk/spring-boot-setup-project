@@ -8,5 +8,12 @@ pipeline{
                 }
             }
         }
+        stage('Run Build') {
+            steps {
+                script {
+                     sh './gradlew build'
+                }
+            }
+        }
     }
 }
